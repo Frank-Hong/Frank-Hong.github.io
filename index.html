@@ -118,21 +118,15 @@
       
 
       
-      <h2 id="我的第一条博客"><a href="#我的第一条博客" class="headerlink" title="我的第一条博客"></a>我的第一条博客</h2><blockquote>
-<p>hello！</p>
-</blockquote>
-<ul>
-<li>数据库</li>
-<li>数据库管理系统</li>
-<li>数据库管理员</li>
-</ul>
-<ol>
-<li><p>计算机网络</p>
-</li>
-<li><p>数据库系统</p>
-<p>How could this happen?<br><img src="Trump.jpg" alt="Alt text"><br><img src="man.jpg" alt="Putin"><br><img src="putin.jpg" alt="Putin"></p>
-</li>
-</ol>
+      <p>title: firstblog<br>date: 2020-04-23 23:51:29</p>
+<hr>
+<p><a href="#单周期CPU">单周期CPU</a><br><a href="#多周期CPU">多周期CPU</a><br><a href="#流水线CPU">流水线CPU</a></p>
+<h3 id="单周期CPU"><a href="#单周期CPU" class="headerlink" title="单周期CPU"></a>单周期CPU</h3><p>单周期数据通路的主要特点：部件冗余（因为一个时钟周期内有多处需要功能类似的部件）。<br><img src="./1.png" alt="Alt text"></p>
+<h3 id="多周期CPU"><a href="#多周期CPU" class="headerlink" title="多周期CPU"></a>多周期CPU</h3><p>多周期数据通路分类<br> 分散互连结构<br> 单总线结构<br> 双总线结构<br> 三总线结构<br>分散互连结构（与总线互连结构相对）<br>在单周期数据通路基础上，通过合并冗余处理单元，并增 加处理单元之间的临时寄存器，便可构造出分散互连的多 周期数据通路。<br>将指令存储器和数据存储器合并成一个存储器，将加法器和 ALU合并成一个 ALU。<br>（单周期CPU中一个时钟周期必须要完成所有操作，因此需要部件冗余；而多周期CPU中一个时钟周期只完成一个操作，因此不需要部件冗余。）<br>需要增加的临时寄存器包括：<br>指令寄存器（IR）用于暂存从存储器读出的指令；<br>存储器数据寄存器（MDR）用于暂存从存储器读出的数据；<br>临时寄存器 A和 B用于暂存从寄存器堆中读出的操作数；<br>寄存器 ALUOut用于暂存 ALU输出的数据。</p>
+<p>T0：用PC值作为地址读取存储器，将指令存入指令寄存器IR；同时，通过ALU修正PC值。<br>T1：指令译码和读取寄存器（为指令执行做准备）。<br>T2：指令执行——计算或程序转移。<br>T3：存储器访问或写寄存器堆。<br>T4：将 MDR 值存入寄存器堆。<br><img src="./2.png" alt="Alt text"></p>
+<h3 id="流水线CPU"><a href="#流水线CPU" class="headerlink" title="流水线CPU"></a>流水线CPU</h3><p>单周期数据通路可以避免流水线的结构冒险，通常， 通过改进单周期数据通路来实现流水线数据通路。<br>指令流水线性能<br>通常，流水线的性能用吞吐率、加速比和效率三项指标来衡量。<br> 吞吐率<br>吞吐率指单位时间内流水线所完成指令或输出结果的数量。<br>吞吐率又有最大吞吐率和实际吞吐率之分。<br>（对于m段的指令流水线来说，若各段时间均为t0，则除第一条指令需要时间mt0之外，若不考虑流水线阻塞，其余n-1条指令每个t0就有一条指令执行完。若考虑流水线阻塞则加上kt0）</p>
+<p> 加速比<br>加速比是某程序以流水线执行的速度与等功能的非流 水线执行的速度之比。<br>加速比S<br><img src="./3.png" alt="Alt text"><br>在n&gt;&gt;m时，Smax≈m。即当流水线各段时间相等时，其最大加速比等于流水线的段数。   </p>
+<p> 效率<br>效率是指流水线中各功能段部件的利用率。<br>m段流水线连续执行n条指令的效率为：<br><img src="./4.png" alt="Alt text"><br>（纵轴表示功能段，数字表示第i条指令，例如第二列即表示此时指令1处于s2段，指令2处于s1段)</p>
 
       
       <!-- reward -->
